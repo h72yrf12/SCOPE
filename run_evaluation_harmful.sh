@@ -1,0 +1,15 @@
+# 1,2,3 seconds SCOPE
+# random, 0_step_greedy, 1_step_greedy
+# vanilla MCTS 1,2,3 seconds
+
+CUDA=3
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=1 --agent=semantic_online --result_file=output/harmful/csv/harmful_SCOPE_1 --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_SCOPE_1.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=2 --agent=semantic_online --result_file=output/harmful/csv/harmful_SCOPE_2 --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_SCOPE_2.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=3 --agent=semantic_online --result_file=output/harmful/csv/harmful_SCOPE_3 --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_SCOPE_3.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=0 --agent=random --result_file=output/harmful/csv/harmful_random --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_random.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=0 --agent=zero_step_greedy --result_file=output/harmful/csv/harmful_greedy_zero --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_greedy_zero.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=0 --agent=one_step_greedy --result_file=output/harmful/csv/harmful_greedy_one --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_greedy_one.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=1 --agent=pure_online --result_file=output/harmful/csv/harmful_vanilla_1 --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_vanilla_1.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=2 --agent=pure_online --result_file=output/harmful/csv/harmful_vanilla_2 --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_vanilla_2.out &&
+nohup python3 -u evaluation/run_evaluation.py --reward_func=harmful --cuda_for_all=$CUDA --lr=0.0001 --evaluation_depth=10 --mcts_time=3 --agent=pure_online --result_file=output/harmful/csv/harmful_vanilla_3 --trials=10 --evaluation_data=harmful_filtered.txt 2>&1 | tee output/harmful/harmful_vanilla_3.out &&
+wait

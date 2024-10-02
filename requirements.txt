@@ -1,0 +1,17 @@
+numpy
+matplotlib
+torch
+scikit-learn
+pandas
+graphviz
+tiktoken
+transformers
+datasets
+accelerate
+wandb
+mixture_of_experts
+openai
+bitsandbytes
+flash_attn
+lz4
+token_count
